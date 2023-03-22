@@ -4,3 +4,4 @@ dash-bootstrap-components
 plotly
 flask_caching
 okama
+redis
