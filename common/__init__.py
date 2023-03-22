@@ -1,3 +1,4 @@
+import os
 import platform
 
 from flask_caching import Cache
@@ -8,7 +9,7 @@ if plt == "Linux":
     cache = Cache(
         config={
             "CACHE_TYPE": "RedisCache",
-            "CACHE_REDIS_URL": "redis://localhost:6379/0",
+            "CACHE_REDIS_URL": os.environ.get("CONFIG_REDIS_URL"),
             "CACHE_DEFAULT_TIMEOUT": 500,
         },
 
