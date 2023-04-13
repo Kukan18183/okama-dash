@@ -1,13 +1,13 @@
 import warnings
 
 import dash
-from dash import html, dcc
 import dash_bootstrap_components as dbc
-from dash.dependencies import Input, Output, State
-
 import plotly.io as pio
+from dash import dcc, html
+from dash.dependencies import Input, Output
 
-import navigation, footer
+import footer
+import navigation
 
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
@@ -16,7 +16,7 @@ pio.templates.default = "plotly_white"
 app = dash.Dash(
     __name__,
     use_pages=True,
-    update_title="Loading okama ...",
+    update_title="Loading…",
     external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP],
     # suppress_callback_exceptions=True
 )

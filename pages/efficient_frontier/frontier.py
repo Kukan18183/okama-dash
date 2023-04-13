@@ -1,26 +1,28 @@
 import dash
-import okama
-from dash import callback, html, dcc
-from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
-
+import okama
 import okama as ok
+from dash import callback, dcc, html
+from dash.dependencies import Input, Output, State
 
-from common.parse_query import make_list_from_string
-from pages.efficient_frontier.cards_efficient_frontier.ef_description import card_ef_description
-from pages.efficient_frontier.cards_efficient_frontier.ef_info import card_ef_info
-from pages.efficient_frontier.cards_efficient_frontier.ef_chart import card_graf
-from pages.efficient_frontier.cards_efficient_frontier.ef_controls import card_controls
-from pages.efficient_frontier.cards_efficient_frontier.ef_chart_transition_map import card_transition_map
 from common.mobile_screens import adopt_small_screens
-from pages.efficient_frontier.prepare_ef_plot import prepare_transition_map, prepare_ef
+from common.parse_query import make_list_from_string
+from pages.efficient_frontier.cards_efficient_frontier.ef_chart import \
+    card_graf
+from pages.efficient_frontier.cards_efficient_frontier.ef_chart_transition_map import \
+    card_transition_map
+from pages.efficient_frontier.cards_efficient_frontier.ef_controls import \
+    card_controls
+from pages.efficient_frontier.cards_efficient_frontier.ef_info import \
+    card_ef_info
+from pages.efficient_frontier.prepare_ef_plot import (prepare_ef,
+                                                      prepare_transition_map)
 
 dash.register_page(
     __name__,
     path="/",
-    title="Efficient Frontier : okama",
+    title="PFA: Efficient Frontier",
     name="Efficient Frontier",
-    description="Efficient Frontier for the investment portfolios",
 )
 
 
@@ -51,7 +53,6 @@ def layout(tickers=None, first_date=None, last_date=None, ccy=None, **kwargs):
                 ),
             ),
             dbc.Row(dbc.Col(card_transition_map, width=12), align="center"),
-            dbc.Row(dbc.Col(card_ef_description, width=12), align="left"),
         ],
         class_name="mt-2",
         fluid="md",
