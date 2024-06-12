@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 8050
 
-CMD python run_gunicorn.py
+CMD [ "python", "run_gunicorn.py" ]
